@@ -12,16 +12,16 @@ COPY conf/ /conf
 # python3-venv python3-distutils python3-pyasn1 python3-pyasn1-modules python3-ldap python3-pygraphviz 
 #
 
-RUN \
-    apt-get --quiet --yes update && \
-    apt-get --yes --no-install-recommends install \
-        bash nano squid make gettext \
-        openssh-client \
-        python3-minimal python3-pip python3-setuptools python3-wheel \
-        python3-virtualenv \
-        pypy3 \
-        redis-server wget && \
-    apt-get --quiet --yes upgrade && apt-get --quiet --yes autoremove && apt-get clean
+#RUN \
+#    apt-get --quiet --yes update && \
+#    apt-get --yes --no-install-recommends install \
+#        bash nano squid make gettext \
+#        openssh-client \
+#        python3-minimal python3-pip python3-setuptools python3-wheel \
+#        python3-virtualenv \
+#        pypy3 \
+#        redis-server wget && \
+#    apt-get --quiet --yes upgrade && apt-get --quiet --yes autoremove && apt-get clean
 #    wget https://raw.githubusercontent.com/luanwillianzh/VPSMANAGER-FULL/main/Modulos/wsproxy.py
 #    chmod +x /conf/*.sh && \
 #    echo "Skel fix..." && mkdir -p /etc/skel/.ssh && touch /etc/skel/.ssh/authorized_keys && \
