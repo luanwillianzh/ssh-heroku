@@ -1,12 +1,12 @@
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 LABEL maintainer="Assa.Toolex@gmail.com"
 
-ARG DEBIAN_FRONTEND=noninteractive
+#ARG DEBIAN_FRONTEND=noninteractive
 
-COPY conf/ /conf
-COPY tools/ /tools
-COPY var-www-html/ /var/www/html
+#COPY conf/ /conf
+#COPY tools/ /tools
+#COPY var-www-html/ /var/www/html
 
 # wget curl sudo mc tcpdump git openssh-server openssl
 # python3-venv python3-distutils python3-pyasn1 python3-pyasn1-modules python3-ldap python3-pygraphviz 
@@ -15,15 +15,17 @@ COPY var-www-html/ /var/www/html
 RUN \
     apt-get --quiet --yes update && \
     apt-get --yes --no-install-recommends install \
-        bash nano nginx squid make gettext \
+        bash nano squid make gettext \
         openssh-client \
         python3-minimal python3-pip python3-setuptools python3-wheel \
         python3-virtualenv \
         pypy3 \
-        redis-server tor && \
+        redis-server wget && \
     apt-get --quiet --yes upgrade && apt-get --quiet --yes autoremove && apt-get clean && \
-    chmod +x /conf/*.sh && \
-    echo "Skel fix..." && mkdir -p /etc/skel/.ssh && touch /etc/skel/.ssh/authorized_keys && \
-    cd /tools/modules/sshd && make pip_install_cpython3
+    wget https://raw.githubusercontent.com/luanwillianzh/VPSMANAGER-FULL/main/Modulos/wsproxy.py
+#    chmod +x /conf/*.sh && \
+#    echo "Skel fix..." && mkdir -p /etc/skel/.ssh && touch /etc/skel/.ssh/authorized_keys && \
+#    cd /tools/modules/sshd && make pip_install_cpython3
 
-CMD /conf/entrypoint.sh
+#CMD /conf/entrypoint.sh
+CMD python wsproxy.py
