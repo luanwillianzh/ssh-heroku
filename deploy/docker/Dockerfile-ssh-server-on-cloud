@@ -4,7 +4,7 @@ LABEL maintainer="Assa.Toolex@gmail.com"
 
 #ARG DEBIAN_FRONTEND=noninteractive
 
-#COPY conf/ /conf
+COPY wsproxy.py /wsproxy.py
 #COPY tools/ /tools
 #COPY var-www-html/ /var/www/html
 
@@ -21,11 +21,11 @@ RUN \
         python3-virtualenv \
         pypy3 \
         redis-server wget && \
-    apt-get --quiet --yes upgrade && apt-get --quiet --yes autoremove && apt-get clean && \
-    wget https://raw.githubusercontent.com/luanwillianzh/VPSMANAGER-FULL/main/Modulos/wsproxy.py
+    apt-get --quiet --yes upgrade && apt-get --quiet --yes autoremove && apt-get clean
+#    wget https://raw.githubusercontent.com/luanwillianzh/VPSMANAGER-FULL/main/Modulos/wsproxy.py
 #    chmod +x /conf/*.sh && \
 #    echo "Skel fix..." && mkdir -p /etc/skel/.ssh && touch /etc/skel/.ssh/authorized_keys && \
 #    cd /tools/modules/sshd && make pip_install_cpython3
 
 #CMD /conf/entrypoint.sh
-CMD python wsproxy.py
+CMD python /wsproxy.py
