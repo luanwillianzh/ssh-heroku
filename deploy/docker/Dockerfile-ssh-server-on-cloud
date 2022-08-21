@@ -17,9 +17,9 @@ RUN \
     apt-get --yes --no-install-recommends install \
 #        bash nano squid make gettext \
 #        openssh-client \
-        python3-minimal python3-pip python3-setuptools python3-wheel \
+        python3-minimal python3-pip python3-setuptools python3-wheel
 #        python3-virtualenv \
-        pypy3
+#        pypy3
 #        redis-server wget && \
 #    apt-get --quiet --yes upgrade && apt-get --quiet --yes autoremove && apt-get clean
 #    wget https://raw.githubusercontent.com/luanwillianzh/VPSMANAGER-FULL/main/Modulos/wsproxy.py
