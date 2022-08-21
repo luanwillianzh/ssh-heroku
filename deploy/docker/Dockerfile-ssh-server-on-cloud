@@ -4,7 +4,7 @@ LABEL maintainer="Assa.Toolex@gmail.com"
 
 #ARG DEBIAN_FRONTEND=noninteractive
 
-COPY wsproxy.py /wsproxy.py
+COPY conf/ /conf
 #COPY tools/ /tools
 #COPY var-www-html/ /var/www/html
 
@@ -28,4 +28,4 @@ RUN \
 #    cd /tools/modules/sshd && make pip_install_cpython3
 
 #CMD /conf/entrypoint.sh
-CMD python /wsproxy.py
+CMD python /conf/wsproxy.py
